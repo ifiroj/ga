@@ -8,25 +8,25 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults: 
+    defaults:
       run:
         working-directory: ./pro/
-    
+
     strategy:
       matrix:
-        python-version: [ 3.9 ]
-    
+        python-version: [3.9]
+
     env:
       MODE: "WEALTH"
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
-        with: 
+        with:
           python-version: ${{ matrix.python-version }}
-          
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
